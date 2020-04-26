@@ -1,0 +1,39 @@
+{
+    "name": "pandorga/owner",
+    "description": "Allow Eloquent models to own each other. Supports many to many relationships.",
+    "keywords": [ "laravel", "owner", "php"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Felix Ayala",
+            "email": "hi@felixaya.la",
+            "homepage": "http://felixaya.la",
+            "role": "Developer"
+        }
+    ],
+    "homepage": "https://github.com/pandorga/owner",
+    "require": {
+        "php": ">=7.2",
+        "illuminate/support": "^5.7.15 | 5.8.* | ^6.0 | ^7.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Pandorga\\Owner\\": "src"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Pandorga\\Owner\\OwnerServiceProvider"
+            ],
+            "aliases": {
+                "Owner": "Pandorga\\Facades\\Owner"
+            }
+        }
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
