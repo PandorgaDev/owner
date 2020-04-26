@@ -15,7 +15,7 @@ trait Owns
      */
     public function own(Model $model)
     {
-        $ownerModel = config('owner.ownermodel');
+        $ownerModel = config('owner.model');
         $checkOwner = $ownerModel::where('owner_id', $this->id)->where('owns_id', $model->id)->get();
 
         // Check if relationship already exists
@@ -40,7 +40,7 @@ trait Owns
      */
     public function disown(Model $model)
     {
-        $ownerModel = config('owner.ownermodel');
+        $ownerModel = config('owner.model');
 
         $relationship = $ownerModel::where('owns_id', $model->id)->where('owner_id', $this->id);
         $relationship->delete();
@@ -55,7 +55,7 @@ trait Owns
      */
     public function owns()
     {
-        $ownerModel = config('owner.ownermodel');
+        $ownerModel = config('owner.model');
         return $this->returnOwnsModels($ownerModel::where('owner_id', $this->id)->get());
     }
 
@@ -67,7 +67,7 @@ trait Owns
      */
     public function ownsModel(Model $model)
     {
-        $ownerModel = config('owner.ownermodel');
+        $ownerModel = config('owner.model');
 
         return (bool) $ownerModel::where('owner_id', $this->id)->where('owns_id', $model->id)->first();
     }
@@ -80,7 +80,7 @@ trait Owns
      */
     public function ownsModelType($modelType)
     {
-        $ownerModel = config('owner.ownermodel');
+        $ownerModel = config('owner.model');
 
         if (gettype($modelType) === 'object') {
             $modelType = get_class($modelType);
