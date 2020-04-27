@@ -15,18 +15,18 @@ Examples could include:
 * Composer
 * Laravel Framework 5.7+/6.0+/7.0+
 
-### Installing Nexus
+### Installing
 
 Run the following command in your console terminal:
 
 ```sh
-$ composer require pandorga/laravel-owner
+$ composer require pandorga/owner
 ```
 
 Publish the migrations and config files:
 
 ```sh
-$ php artisan vendor:publish""
+$ php artisan vendor:publish --provider="Pandorga\Owner\OwnerServiceProvider"
 ```
 
 Run the migrations:
@@ -43,10 +43,10 @@ If the model can be an owner:
 
 ```php
 use Pandorga\Owner\Traits\Owns;
-	
+    
 class User extends Model
 {
-	use Owns;
+    use Owns;
 }
 ```
 
@@ -54,10 +54,10 @@ If the model can be owned by another model:
 
 ```php
 use Pandorga\Owner\Traits\HasOwner;
-	
+    
 class Resource extends Model
 {
-	use HasOwner;
+    use HasOwner;
 }
 ```
 
