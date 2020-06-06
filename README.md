@@ -116,6 +116,11 @@ Remove an owner from the model
 ```php
 $model->removeOwner($owner);
 ```
+Remove all owners from the model
+
+```php
+$model->removeAllOwners();
+```
 
 ## Security
 
