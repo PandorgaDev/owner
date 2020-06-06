@@ -76,6 +76,20 @@ trait HasOwner
     }
 
     /**
+     * Remove all owners from model
+     *
+     * @return void
+     */
+    public function removeAllOwners()
+    {
+        $ownerModel = config('owner.model');
+
+        return $ownerModel::where('owns_id', $this->id)
+                          ->where('owns_model', get_class($this))
+                          ->delete();
+    }
+
+    /**
      * Query the owned models.
      *
      * @param  \Illuminate\Support\Collection  $ownerModels
